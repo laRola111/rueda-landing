@@ -34,31 +34,7 @@ const providers = [
 ] as const;
 
 export default function ProviderDirectory() {
-  const { t } = useLang();
+  // const { t } = useLang();
 
-  return (
-    <div className="provider-list" role="list" aria-label="Product catalogs">
-      {providers.map(({ id, emoji, name, href, descKey }) => (
-        <a
-          key={id}
-          id={`provider-${id}`}
-          href={href}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="provider-item"
-          role="listitem"
-          aria-label={`Ver catálogo de ${name}`}
-        >
-          <div className="provider-info">
-            <span className="provider-emoji" aria-hidden="true">{emoji}</span>
-            <div>
-              <div className="provider-name">{name}</div>
-              <div className="provider-desc">{t[descKey as keyof typeof t]}</div>
-            </div>
-          </div>
-          <span className="provider-arrow" aria-hidden="true">→</span>
-        </a>
-      ))}
-    </div>
-  );
+  return null; // 💤 Muted for now
 }
