@@ -8,10 +8,12 @@ import LangSwitcher from '@/app/components/LangSwitcher';
 import ContactGrid from '@/app/components/ContactGrid';
 import ServicesNav from '@/app/components/ServicesNav';
 import PaymentCenter from '@/app/components/PaymentCenter';
-import ProviderDirectory from '@/app/components/ProviderDirectory';
 import QuoteForm from '@/app/components/QuoteForm';
-import OrderTracker from '@/app/components/OrderTracker';
+import VehicleWrapsSection from '@/app/components/VehicleWrapsSection';
+import PrintBestsellers from '@/app/components/PrintBestsellers';
+import DigitalServices from '@/app/components/DigitalServices';
 import ReviewsWidget from '@/app/components/ReviewsWidget';
+// import OrderTracker from '@/app/components/OrderTracker'; // 💤 Coming soon
 
 /* ── Toast ────────────────────────────────────────── */
 function Toast({ message, visible }: { message: string; visible: boolean }) {
@@ -54,7 +56,6 @@ const FbIcon = () => (
 const TtIcon = () => (
   <svg width="22" height="22" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
     <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34v-7a8.16 8.16 0 0 0 4.77 1.52V6.38a4.85 4.85 0 0 1-1-.31z" fill="#ffffff"/>
-    <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34v-7a8.16 8.16 0 0 0 4.77 1.52V6.38a4.85 4.85 0 0 1-1-.31z" fill="none"/>
   </svg>
 );
 
@@ -73,7 +74,6 @@ function SocialRow() {
     { id: 'tt',  Icon: TtIcon,  href: CONFIG.TIKTOK,    label: 'TikTok',    hoverColor: 'hsla(0, 0%, 100%, 0.1)',     borderColor: 'hsla(0, 0%, 80%, 0.35)' },
     { id: 'web', Icon: WebIcon, href: CONFIG.WEBSITE,   label: 'Website',   hoverColor: 'hsla(247, 62%, 55%, 0.15)', borderColor: 'hsla(247, 62%, 55%, 0.4)' },
   ];
-
   return (
     <div className="social-row" role="group" aria-label="Social media links">
       {socials.map(({ id, Icon, href, label, hoverColor, borderColor }) => (
@@ -104,22 +104,14 @@ function BusinessInfo() {
 
   return (
     <div className="info-grid">
-      <a
-        id="info-address"
-        href={CONFIG.MAPS_URL}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="info-row"
-        style={{ textDecoration: 'none' }}
-        aria-label="Open address in Google Maps"
-      >
+      <a id="info-address" href={CONFIG.MAPS_URL} target="_blank" rel="noopener noreferrer"
+        className="info-row" style={{ textDecoration: 'none' }} aria-label="Open in Google Maps">
         <span className="info-icon">📍</span>
         <div>
           <div className="info-label">{lang === 'en' ? 'Address' : 'Dirección'}</div>
           <div className="info-value">{CONFIG.ADDRESS}</div>
         </div>
       </a>
-
       <div className="info-row">
         <span className="info-icon">🕐</span>
         <div>
@@ -127,42 +119,24 @@ function BusinessInfo() {
           <div className="info-value">{hours}</div>
         </div>
       </div>
-
-      <a
-        id="info-phone-main"
-        href={`tel:${CONFIG.PHONE_MAIN}`}
-        className="info-row"
-        style={{ textDecoration: 'none' }}
-        aria-label="Call main line"
-      >
+      <a id="info-phone-main" href={`tel:${CONFIG.PHONE_MAIN}`}
+        className="info-row" style={{ textDecoration: 'none' }} aria-label="Call main line">
         <span className="info-icon">📞</span>
         <div>
-          <div className="info-label">{lang === 'en' ? 'Main Line · Austin TX' : 'Línea Principal · Austin TX'}</div>
+          <div className="info-label">{lang === 'en' ? 'Main · Austin TX' : 'Principal · Austin TX'}</div>
           <div className="info-value" style={{ color: 'var(--brand-magenta)' }}>{CONFIG.PHONE_MAIN}</div>
         </div>
       </a>
-
-      <a
-        id="info-phone-office"
-        href={`tel:${CONFIG.PHONE_OFFICE}`}
-        className="info-row"
-        style={{ textDecoration: 'none' }}
-        aria-label="Call office line"
-      >
+      <a id="info-phone-office" href={`tel:${CONFIG.PHONE_OFFICE}`}
+        className="info-row" style={{ textDecoration: 'none' }} aria-label="Call office">
         <span className="info-icon">🏢</span>
         <div>
           <div className="info-label">{lang === 'en' ? 'Office (LLC)' : 'Oficina (LLC)'}</div>
           <div className="info-value" style={{ color: 'hsl(247, 70%, 70%)' }}>{CONFIG.PHONE_OFFICE}</div>
         </div>
       </a>
-
-      <a
-        id="info-email"
-        href={`mailto:${CONFIG.EMAIL}`}
-        className="info-row"
-        style={{ textDecoration: 'none' }}
-        aria-label="Send email"
-      >
+      <a id="info-email" href={`mailto:${CONFIG.EMAIL}`}
+        className="info-row" style={{ textDecoration: 'none' }} aria-label="Send email">
         <span className="info-icon">✉️</span>
         <div>
           <div className="info-label">Email</div>
@@ -173,7 +147,7 @@ function BusinessInfo() {
   );
 }
 
-/* ── Landing Inner (needs LangContext) ────────────── */
+/* ── Landing Inner ────────────────────────────────── */
 function LandingInner() {
   const { t, lang } = useLang();
   const [toastMsg, setToastMsg] = useState('');
@@ -193,47 +167,19 @@ function LandingInner() {
 
         {/* ── HERO ───────────────────────────── */}
         <section className="hero animate-fade-in" aria-label="Perfil de marca">
-
-          {/* Spinning gradient ring with real logo */}
           <div className="hero-logo-wrap" role="img" aria-label="Rueda La Rola Media logo">
-            <Image
-              src="/logo.png"
-              alt="Rueda La Rola Media"
-              width={100}
-              height={100}
-              className="hero-logo-img"
-              priority
-            />
+            <Image src="/logo.png" alt="Rueda La Rola Media" width={100} height={100} className="hero-logo-img" priority />
           </div>
-
           <div className="hero-badge" role="status">🟢 {t.badge.replace('🟢 ', '')}</div>
-
-          <h1
-            className="hero-name font-display gradient-text-brand"
-            style={{ fontSize: 'clamp(1.7rem, 7vw, 2.4rem)' }}
-          >
+          <h1 className="hero-name font-display gradient-text-brand" style={{ fontSize: 'clamp(1.7rem, 7vw, 2.4rem)' }}>
             Rueda La Rola Media
           </h1>
-
-          {/* Slogan image */}
-          <Image
-            src="/slogan.png"
-            alt="Your Art Comes to Life"
-            width={280}
-            height={105}
-            className="hero-slogan"
-            style={{ height: 'auto' }}
-            priority
-          />
-
+          <Image src="/slogan.png" alt="Your Art Comes to Life" width={280} height={105} className="hero-slogan" style={{ height: 'auto' }} priority />
           <p className="hero-tagline">{t.tagline}</p>
-
           <div className="hero-location">
             <span aria-hidden="true">📍</span>
             <span>Austin, TX · {lang === 'en' ? 'Mon–Sat 8am–6pm' : 'Lun–Sáb 8am–6pm'}</span>
           </div>
-
-          {/* Social row */}
           <SocialRow />
         </section>
 
@@ -245,7 +191,7 @@ function LandingInner() {
 
         <div className="divider" aria-hidden="true" />
 
-        {/* ── SERVICES ───────────────────────── */}
+        {/* ── SERVICES QUICK GRID ─────────────── */}
         <section aria-label={t.sectionServices} className="animate-fade-in delay-3">
           <SectionCard>
             <div className="section-tag"><span aria-hidden="true">🛠️</span> {t.sectionServices}</div>
@@ -253,8 +199,35 @@ function LandingInner() {
           </SectionCard>
         </section>
 
+        {/* ── VEHICLE WRAPS ──────────────────── */}
+        <section id="wraps" aria-label={t.sectionWraps} className="animate-fade-in delay-4">
+          <SectionCard>
+            <div className="section-tag"><span aria-hidden="true">🚘</span> {t.sectionWraps}</div>
+            <VehicleWrapsSection />
+          </SectionCard>
+        </section>
+
+        {/* ── PRINT BESTSELLERS ──────────────── */}
+        <section id="print" aria-label={t.sectionPrint} className="animate-fade-in delay-4">
+          <SectionCard>
+            <div className="section-tag"><span aria-hidden="true">🔥</span> {t.sectionPrint}</div>
+            <p style={{ fontSize: '0.82rem', color: 'var(--text-secondary)', marginBottom: '1rem', lineHeight: 1.55 }}>
+              {t.printSubtitle}
+            </p>
+            <PrintBestsellers />
+          </SectionCard>
+        </section>
+
+        {/* ── DIGITAL SERVICES ───────────────── */}
+        <section id="digital" aria-label={t.sectionDigital} className="animate-fade-in delay-5">
+          <SectionCard>
+            <div className="section-tag"><span aria-hidden="true">💻</span> {t.sectionDigital}</div>
+            <DigitalServices />
+          </SectionCard>
+        </section>
+
         {/* ── QUOTE FORM ─────────────────────── */}
-        <section id="quote" aria-label={t.sectionQuote} className="animate-fade-in delay-4">
+        <section id="quote" aria-label={t.sectionQuote} className="animate-fade-in delay-5">
           <SectionCard>
             <div className="section-tag"><span aria-hidden="true">⚡</span> {t.sectionQuote}</div>
             <p style={{ fontSize: '0.82rem', color: 'var(--text-secondary)', marginBottom: '1.25rem', lineHeight: 1.55 }}>
@@ -265,39 +238,30 @@ function LandingInner() {
         </section>
 
         {/* ── BUSINESS INFO ──────────────────── */}
-        <section aria-label={lang === 'en' ? 'Business Info' : 'Información del Negocio'} className="animate-fade-in delay-5">
+        <section aria-label={lang === 'en' ? 'Business Info' : 'Información'} className="animate-fade-in delay-6">
           <SectionCard>
-            <div className="section-tag">
-              <span aria-hidden="true">🏢</span>
-              {lang === 'en' ? 'Business Info' : 'Información'}
-            </div>
+            <div className="section-tag"><span aria-hidden="true">🏢</span> {lang === 'en' ? 'Business Info' : 'Información'}</div>
             <BusinessInfo />
           </SectionCard>
         </section>
 
         {/* ── PAYMENT ────────────────────────── */}
-        <section aria-label={t.sectionPayment} className="animate-fade-in delay-5">
+        <section aria-label={t.sectionPayment} className="animate-fade-in delay-6">
           <SectionCard>
             <div className="section-tag"><span aria-hidden="true">💳</span> {t.sectionPayment}</div>
             <PaymentCenter />
           </SectionCard>
         </section>
 
-        {/* ── PROVIDERS ──────────────────────── */}
-        <section aria-label={t.sectionProviders} className="animate-fade-in delay-6">
+        {/* ── ORDER TRACKER (💤 muted — coming soon) ── */}
+        {/* 
+        <section id="tracker" aria-label="Track Order" className="animate-fade-in delay-7">
           <SectionCard>
-            <div className="section-tag"><span aria-hidden="true">📦</span> {t.sectionProviders}</div>
-            <ProviderDirectory />
-          </SectionCard>
-        </section>
-
-        {/* ── ORDER TRACKER ──────────────────── */}
-        <section aria-label={t.sectionTracker} className="animate-fade-in delay-6">
-          <SectionCard>
-            <div className="section-tag"><span aria-hidden="true">🎯</span> {t.sectionTracker}</div>
+            <div className="section-tag"><span aria-hidden="true">🎯</span> Track Order</div>
             <OrderTracker />
           </SectionCard>
         </section>
+        */}
 
         {/* ── REVIEWS ────────────────────────── */}
         <section aria-label={t.sectionReviews} className="animate-fade-in delay-7">
@@ -308,10 +272,7 @@ function LandingInner() {
         </section>
 
         {/* ── FOOTER ─────────────────────────── */}
-        <footer
-          className="text-center animate-fade-in delay-9"
-          style={{ marginTop: 'var(--sp-xl)', paddingBottom: 'var(--sp-lg)' }}
-        >
+        <footer className="text-center animate-fade-in delay-9" style={{ marginTop: 'var(--sp-xl)', paddingBottom: 'var(--sp-lg)' }}>
           <a href={CONFIG.WEBSITE} target="_blank" rel="noopener noreferrer"
             style={{ fontSize: '0.75rem', color: 'var(--brand-magenta)', display: 'block', marginBottom: '0.3rem' }}>
             {CONFIG.WEBSITE.replace('https://', '')}

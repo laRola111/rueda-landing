@@ -677,6 +677,217 @@ select.form-control {
 select.form-control option { background: var(--bg-elevated); color: var(--text-primary); }
 
 /* ========================================
+   VEHICLE WRAPS SECTION
+   ======================================== */
+.wrap-types-grid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-sm);
+  margin-bottom: var(--sp-md);
+}
+
+.wrap-type-card {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sp-md);
+  padding: var(--sp-sm) var(--sp-md);
+  background: var(--bg-elevated);
+  border: 1px solid var(--bg-border);
+  border-left: 3px solid var(--brand-magenta);
+  border-radius: var(--radius-md);
+  transition: transform var(--trans-spring), border-color var(--trans-base);
+}
+
+.wrap-type-card:hover {
+  transform: translateX(4px);
+  border-left-color: var(--brand-violet);
+}
+
+.wrap-type-icon {
+  font-size: 1.6rem;
+  flex-shrink: 0;
+  line-height: 1;
+  margin-top: 0.1rem;
+}
+
+.wrap-type-label {
+  font-family: var(--font-display);
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.wrap-type-desc {
+  font-size: 0.74rem;
+  color: var(--text-muted);
+  margin-top: 0.15rem;
+}
+
+.wrap-stat-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: var(--sp-md);
+  background: hsla(322, 100%, 45%, 0.07);
+  border: 1px solid hsla(322, 100%, 45%, 0.2);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--sp-sm);
+}
+
+.wrap-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.wrap-stat-num {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 900;
+  background: var(--brand-gradient-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+}
+
+.wrap-stat-lbl {
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  text-align: center;
+  font-weight: 500;
+}
+
+.wrap-stat-divider {
+  width: 1px;
+  height: 36px;
+  background: var(--bg-border);
+}
+
+/* ========================================
+   PRINT BESTSELLERS
+   ======================================== */
+.print-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--sp-sm);
+  margin-bottom: var(--sp-md);
+}
+
+.print-card {
+  position: relative;
+  background: var(--bg-elevated);
+  border: 1px solid var(--bg-border);
+  border-radius: var(--radius-md);
+  padding: var(--sp-md);
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  transition: transform var(--trans-spring), border-color var(--trans-base), box-shadow var(--trans-base);
+  overflow: hidden;
+}
+
+.print-card:hover {
+  transform: translateY(-3px);
+  border-color: hsla(322, 100%, 45%, 0.4);
+  box-shadow: 0 6px 20px hsla(322, 100%, 45%, 0.12);
+}
+
+.hot-badge {
+  position: absolute;
+  top: 0.4rem;
+  right: 0.5rem;
+  font-size: 0.85rem;
+  line-height: 1;
+}
+
+.print-icon {
+  font-size: 1.8rem;
+  line-height: 1;
+}
+
+.print-label {
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.print-desc {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+/* ========================================
+   DIGITAL SERVICES LIST
+   ======================================== */
+.digital-services-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-sm);
+  margin-bottom: var(--sp-md);
+}
+
+.digital-service-item {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-md);
+  padding: var(--sp-sm) var(--sp-md);
+  background: var(--bg-elevated);
+  border: 1px solid var(--bg-border);
+  border-radius: var(--radius-md);
+  transition: transform var(--trans-spring), border-color var(--trans-base), background var(--trans-base);
+  cursor: default;
+}
+
+.digital-service-item:hover {
+  transform: translateX(4px);
+  border-color: hsla(247, 62%, 55%, 0.4);
+  background: hsla(247, 62%, 55%, 0.05);
+}
+
+.ds-icon-wrap {
+  font-size: 1.4rem;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: hsla(247, 62%, 44%, 0.12);
+  border-radius: var(--radius-sm);
+  flex-shrink: 0;
+}
+
+.ds-info { flex: 1; }
+
+.ds-label {
+  font-family: var(--font-display);
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.ds-desc {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  margin-top: 0.1rem;
+}
+
+.ds-arrow {
+  color: var(--text-muted);
+  font-size: 1rem;
+  transition: transform var(--trans-base), color var(--trans-base);
+  flex-shrink: 0;
+}
+
+.digital-service-item:hover .ds-arrow {
+  transform: translateX(3px);
+  color: var(--brand-violet);
+}
+
+/* ========================================
    ORDER TRACKER
    ======================================== */
 .tracker-input-row { display: flex; gap: var(--sp-sm); }

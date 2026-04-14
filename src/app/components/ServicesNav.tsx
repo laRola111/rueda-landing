@@ -4,11 +4,11 @@ import { useLang } from '@/app/context/LangContext';
 
 const services = [
   { id: 'embroidery', icon: '🧵', href: '#quote' },
-  { id: 'dtf', icon: '🖨️', href: '#quote' },
-  { id: 'marketing', icon: '📈', href: '#quote' },
-  { id: 'wraps', icon: '🚘', href: '#quote' },
-  { id: 'design', icon: '🎨', href: '#quote' },
-  { id: 'merch', icon: '👕', href: '#quote' },
+  { id: 'dtf',        icon: '🖨️', href: '#quote' },
+  { id: 'wraps',      icon: '🚘', href: '#wraps' },
+  { id: 'bizCards',   icon: '💼', href: '#print' },
+  { id: 'foodMenus',  icon: '🍟', href: '#print' },
+  { id: 'webDesign',  icon: '🌐', href: '#digital' },
 ] as const;
 
 export default function ServicesNav() {
@@ -16,11 +16,11 @@ export default function ServicesNav() {
 
   const labels: Record<string, string> = {
     embroidery: t.embroidery,
-    dtf: t.dtf,
-    marketing: t.marketing,
-    wraps: t.wraps,
-    design: t.design,
-    merch: t.merch,
+    dtf:        t.dtf,
+    wraps:      t.wraps,
+    bizCards:   t.bizCards,
+    foodMenus:  t.foodMenus,
+    webDesign:  t.webDesign,
   };
 
   return (

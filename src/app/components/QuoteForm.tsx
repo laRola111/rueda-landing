@@ -20,20 +20,19 @@ export default function QuoteForm({ onToast }: QuoteFormProps) {
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-
     if (!service) return alert('Por favor selecciona un servicio.');
 
     const lines = [
       `🛠️ *Servicio:* ${service}`,
-      qty ? `📦 *Cantidad:* ${qty} unidades` : null,
-      date ? `📅 *Entrega deseada:* ${date}` : null,
-      notes ? `📝 *Notas:* ${notes}` : null,
+      qty   ? `📦 *Cantidad:* ${qty} unidades` : null,
+      date  ? `📅 *Entrega deseada:* ${date}`   : null,
+      notes ? `📝 *Notas:* ${notes}`            : null,
     ]
       .filter(Boolean)
       .join('\n');
 
     const message = encodeURIComponent(
-      `Hola Rueda La Rola! 👋 Quisiera solicitar una cotización:\n\n${lines}`
+      `Hola Rueda La Rola Media! 👋 Quisiera solicitar una cotización:\n\n${lines}`
     );
 
     onToast(t.toastQuote);
@@ -44,17 +43,16 @@ export default function QuoteForm({ onToast }: QuoteFormProps) {
 
   const baseDate = new Date().toISOString().split('T')[0];
 
+  // Option groups
+  const printOptions = [t.opt_embroider, t.opt_dtf, t.opt_cards, t.opt_menu, t.opt_banner];
+  const wrapOptions  = [t.opt_wrap];
+  const digitalOptions = [t.opt_web, t.opt_landing, t.opt_store, t.opt_digitalcard, t.opt_social, t.opt_design];
+
   return (
-    <form
-      id="quote-form"
-      className="quote-form"
-      onSubmit={handleSubmit}
-      aria-label="Formulario de cotización"
-    >
+    <form id="quote-form" className="quote-form" onSubmit={handleSubmit} aria-label="Formulario de cotización">
+
       <div className="form-group">
-        <label htmlFor="quote-service" className="form-label">
-          {t.labelService}
-        </label>
+        <label htmlFor="quote-service" className="form-label">{t.labelService}</label>
         <select
           id="quote-service"
           className="form-control"
@@ -62,22 +60,21 @@ export default function QuoteForm({ onToast }: QuoteFormProps) {
           onChange={(e) => setService(e.target.value)}
           required
         >
-          <option value="" disabled>
-            {t.placeholderService}
-          </option>
-          <option value={t.opt_embroider}>{t.opt_embroider}</option>
-          <option value={t.opt_dtf}>{t.opt_dtf}</option>
-          <option value={t.opt_wrap}>{t.opt_wrap}</option>
-          <option value={t.opt_design}>{t.opt_design}</option>
-          <option value={t.opt_marketing}>{t.opt_marketing}</option>
-          <option value={t.opt_merch}>{t.opt_merch}</option>
+          <option value="" disabled>{t.placeholderService}</option>
+          <optgroup label="🖨️ Impresión / Print">
+            {printOptions.map((o) => <option key={o} value={o}>{o}</option>)}
+          </optgroup>
+          <optgroup label="🚘 Wrapping">
+            {wrapOptions.map((o) => <option key={o} value={o}>{o}</option>)}
+          </optgroup>
+          <optgroup label="💻 Digital">
+            {digitalOptions.map((o) => <option key={o} value={o}>{o}</option>)}
+          </optgroup>
         </select>
       </div>
 
       <div className="form-group">
-        <label htmlFor="quote-qty" className="form-label">
-          {t.labelQty}
-        </label>
+        <label htmlFor="quote-qty" className="form-label">{t.labelQty}</label>
         <input
           id="quote-qty"
           type="number"
@@ -90,9 +87,7 @@ export default function QuoteForm({ onToast }: QuoteFormProps) {
       </div>
 
       <div className="form-group">
-        <label htmlFor="quote-date" className="form-label">
-          {t.labelDate}
-        </label>
+        <label htmlFor="quote-date" className="form-label">{t.labelDate}</label>
         <input
           id="quote-date"
           type="date"
@@ -104,9 +99,7 @@ export default function QuoteForm({ onToast }: QuoteFormProps) {
       </div>
 
       <div className="form-group">
-        <label htmlFor="quote-notes" className="form-label">
-          {t.labelNotes}
-        </label>
+        <label htmlFor="quote-notes" className="form-label">{t.labelNotes}</label>
         <textarea
           id="quote-notes"
           className="form-control"
