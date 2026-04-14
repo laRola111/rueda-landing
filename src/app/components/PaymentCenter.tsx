@@ -1,5 +1,6 @@
 'use client';
 
+import { useLang } from '@/app/context/LangContext';
 import { CONFIG } from '@/app/config';
 
 const payments = [
@@ -30,8 +31,10 @@ const payments = [
 ];
 
 export default function PaymentCenter() {
+  const { t } = useLang();
+
   return (
-    <div className="payment-grid" role="list" aria-label="Payment methods">
+    <div className="payment-grid" role="list" aria-label={t.sectionPayment}>
       {payments.map(({ id, logo, name, label, href, className }) => (
         <a
           key={id}
@@ -41,7 +44,7 @@ export default function PaymentCenter() {
           rel="noopener noreferrer"
           className={`payment-btn ${className}`}
           role="listitem"
-          aria-label={`Pagar con ${name}`}
+          aria-label={`${t.ariaPayWith} ${name}`}
         >
           <span className="pb-logo" aria-hidden="true">{logo}</span>
           <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.8rem', fontWeight: 700 }}>

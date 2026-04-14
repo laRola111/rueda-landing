@@ -17,7 +17,7 @@ export default function DigitalServices() {
   ] as const;
 
   const handleCTA = () => {
-    const msg = encodeURIComponent('Hola Rueda La Rola Media! 💻 Me interesa un servicio digital (web/landing/tienda/tarjeta digital). ¿Podemos hablar?');
+    const msg = encodeURIComponent(t.digitalMsg);
     window.open(`https://wa.me/${WHATSAPP}?text=${msg}`, '_blank');
   };
 

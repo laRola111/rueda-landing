@@ -10,9 +10,12 @@ const translations = {
     badge: '🟢 Disponible para proyectos',
     tagline: 'Your Art Comes to Life · Austin, TX',
     location: 'Austin, TX',
+    hoursHero: 'Lun–Sáb 8am–6pm',
     sectionInfo: 'Información',
     hoursLabel: 'Horario',
     addressLabel: 'Dirección',
+    mainLineLabel: 'Principal · Austin TX',
+    officeLineLabel: 'Oficina (LLC)',
 
     // Contact
     sectionContact: 'Contacto',
@@ -21,6 +24,17 @@ const translations = {
     email: 'Email',
     saveContact: 'Guardar',
     share: 'Compartir',
+    toastVCF: '✅ Contacto guardado',
+    toastShare: '🔗 Enlace copiado',
+    toastQuote: '📲 Abriendo WhatsApp...',
+    whatsappMsgDefault: 'Hola Rueda La Rola Media! 👋 Me interesa un servicio. ¿Me pueden ayudar?',
+    vcfNote: 'Your Art Comes to Life — Bordado, DTF, Marketing, Vehicle Wraps',
+    shareText: 'Your Art Comes to Life — Austin, TX. Bordado, DTF, Vehicle Wraps & más',
+    ariaContactWhatsApp: 'Contactar por WhatsApp',
+    ariaContactCall: 'Llamar línea principal',
+    ariaContactEmail: 'Enviar correo electrónico',
+    ariaSaveVcf: 'Guardar en contactos',
+    ariaShare: 'Compartir esta tarjeta',
 
     // Services (quick grid)
     sectionServices: 'Nuestros Servicios',
@@ -45,6 +59,9 @@ const translations = {
     wrapDecals: 'Decals & Letras',
     wrapDecalsDesc: 'Opciones económicas para negocio.',
     wrapCTA: '🚘 Pedir cotización de wrap',
+    wrapMsg: 'Hola Rueda La Rola Media! 🚘 Me interesa un Vehicle Wrap. ¿Me pueden dar una cotización?',
+    wrapStatVehicles: 'Vehículos wrapeados',
+    wrapStatTurnaround: 'Tiempo promedio',
 
     // Print bestsellers
     sectionPrint: 'Impresión Estrella',
@@ -58,6 +75,8 @@ const translations = {
     printBanners: 'Banners & Señalética',
     printBannersDesc: 'Exteriores, pop-up stands & rollups.',
     printCTA: '🖨️ Solicitar muestra / cotización',
+    printMsg: 'Hola Rueda La Rola Media! 🖨️ Me interesa un presupuesto de impresión. ¿Pueden ayudarme?',
+    printHotBadge: 'Más pedido',
 
     // Digital Services
     sectionDigital: 'Servicios Digitales',
@@ -73,9 +92,11 @@ const translations = {
     digitalSocial: 'Redes Sociales',
     digitalSocialDesc: 'Gestión, contenido y estrategia de marca.',
     digitalCTA: '💻 Consulta tu proyecto digital',
+    digitalMsg: 'Hola Rueda La Rola Media! 💻 Me interesa un servicio digital (web/landing/tienda/tarjeta digital). ¿Podemos hablar?',
 
     // Payment
     sectionPayment: 'Métodos de Pago',
+    ariaPayWith: 'Pagar con',
 
     // Quote
     sectionQuote: 'Cotización Rápida',
@@ -89,6 +110,7 @@ const translations = {
     placeholderDate: '',
     placeholderNotes: 'Color, talla, diseño, descripción, etc.',
     btnSendQuote: '📲 Enviar cotización por WhatsApp',
+    quoteMsgHeader: 'Hola Rueda La Rola Media! 👋 Quisiera solicitar una cotización:',
     opt_embroider: 'Bordado',
     opt_dtf: 'Impresión DTF',
     opt_wrap: 'Vehicle Wrap',
@@ -105,24 +127,27 @@ const translations = {
     // Reviews
     sectionReviews: 'Lo que dicen nuestros clientes',
     reviewsTotal: 'Calificación en Google',
+    reviewsCount: '5 reseñas',
+    starsLabel: '5 de 5 estrellas',
+    ariaViewOnGoogle: 'Ver reseñas en Google Maps',
+    reviewsSeeAll: '⭐ Ver todas en Google Maps',
+    reviewDatePrefix: 'hace ',
 
     // Footer
     footer: 'Hecho con ❤️ en Austin, TX',
     website: 'ruedalarolamedia.com',
-
-    // Toast
-    toastVCF: '✅ Contacto guardado',
-    toastShare: '🔗 Enlace copiado',
-    toastQuote: '📲 Abriendo WhatsApp...',
   },
   en: {
     // Hero
     badge: '🟢 Available for projects',
     tagline: 'Your Art Comes to Life · Austin, TX',
     location: 'Austin, TX',
+    hoursHero: 'Mon–Sat 8am–6pm',
     sectionInfo: 'Business Info',
     hoursLabel: 'Hours',
     addressLabel: 'Address',
+    mainLineLabel: 'Main · Austin TX',
+    officeLineLabel: 'Office (LLC)',
 
     // Contact
     sectionContact: 'Contact',
@@ -131,6 +156,17 @@ const translations = {
     email: 'Email',
     saveContact: 'Save',
     share: 'Share',
+    toastVCF: '✅ Contact saved',
+    toastShare: '🔗 Link copied',
+    toastQuote: '📲 Opening WhatsApp...',
+    whatsappMsgDefault: 'Hi Rueda La Rola Media! 👋 I\'m interested in a service. Can you help me?',
+    vcfNote: 'Your Art Comes to Life — Embroidery, DTF, Marketing, Vehicle Wraps',
+    shareText: 'Your Art Comes to Life — Austin, TX. Embroidery, DTF, Vehicle Wraps & more',
+    ariaContactWhatsApp: 'Contact on WhatsApp',
+    ariaContactCall: 'Call main line',
+    ariaContactEmail: 'Send email',
+    ariaSaveVcf: 'Save to contacts',
+    ariaShare: 'Share this card',
 
     // Services (quick grid)
     sectionServices: 'Our Services',
@@ -155,6 +191,9 @@ const translations = {
     wrapDecals: 'Decals & Lettering',
     wrapDecalsDesc: 'Budget-friendly business options.',
     wrapCTA: '🚘 Get a wrap quote',
+    wrapMsg: 'Hi Rueda La Rola Media! 🚘 I\'m interested in a Vehicle Wrap. Can you give me a quote?',
+    wrapStatVehicles: 'Vehicles wrapped',
+    wrapStatTurnaround: 'Avg. turnaround',
 
     // Print bestsellers
     sectionPrint: 'Print Bestsellers',
@@ -168,6 +207,8 @@ const translations = {
     printBanners: 'Banners & Signage',
     printBannersDesc: 'Outdoor, pop-up stands & rollups.',
     printCTA: '🖨️ Request a sample / quote',
+    printMsg: 'Hi Rueda La Rola Media! 🖨️ I\'m interested in a printing quote. Can you help me?',
+    printHotBadge: 'Bestseller',
 
     // Digital Services
     sectionDigital: 'Digital Services',
@@ -183,9 +224,11 @@ const translations = {
     digitalSocial: 'Social Media',
     digitalSocialDesc: 'Management, content & brand strategy.',
     digitalCTA: '💻 Consult your digital project',
+    digitalMsg: 'Hi Rueda La Rola Media! 💻 I\'m interested in a digital service (web/landing/store/digital card). Can we talk?',
 
     // Payment
     sectionPayment: 'Payment Methods',
+    ariaPayWith: 'Pay with',
 
     // Quote
     sectionQuote: 'Quick Quote',
@@ -199,6 +242,7 @@ const translations = {
     placeholderDate: '',
     placeholderNotes: 'Color, size, design, description, etc.',
     btnSendQuote: '📲 Send quote via WhatsApp',
+    quoteMsgHeader: 'Hi Rueda La Rola Media! 👋 I\'d like to request a quote:',
     opt_embroider: 'Embroidery',
     opt_dtf: 'DTF Printing',
     opt_wrap: 'Vehicle Wrap',
@@ -215,15 +259,15 @@ const translations = {
     // Reviews
     sectionReviews: 'What our clients say',
     reviewsTotal: 'Google Rating',
+    reviewsCount: '5 reviews',
+    starsLabel: '5 out of 5 stars',
+    ariaViewOnGoogle: 'View reviews on Google Maps',
+    reviewsSeeAll: '⭐ See all on Google Maps',
+    reviewDatePrefix: '',
 
     // Footer
     footer: 'Made with ❤️ in Austin, TX',
     website: 'ruedalarolamedia.com',
-
-    // Toast
-    toastVCF: '✅ Contact saved',
-    toastShare: '🔗 Link copied',
-    toastQuote: '📲 Opening WhatsApp...',
   },
 };
 

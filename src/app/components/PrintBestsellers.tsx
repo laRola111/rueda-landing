@@ -16,7 +16,7 @@ export default function PrintBestsellers() {
   ] as const;
 
   const handleCTA = () => {
-    const msg = encodeURIComponent('Hola Rueda La Rola Media! 🖨️ Me interesa un presupuesto de impresión. ¿Pueden ayudarme?');
+    const msg = encodeURIComponent(t.printMsg);
     window.open(`https://wa.me/${WHATSAPP}?text=${msg}`, '_blank');
   };
 
@@ -30,7 +30,7 @@ export default function PrintBestsellers() {
         {items.map(({ icon, labelKey, descKey, hot }) => (
           <div key={labelKey} className="print-card">
             {hot && (
-              <span className="hot-badge" aria-label="Más pedido">🔥</span>
+              <span className="hot-badge" aria-label={t.printHotBadge}>🔥</span>
             )}
             <div className="print-icon" aria-hidden="true">{icon}</div>
             <div className="print-label">{t[labelKey]}</div>

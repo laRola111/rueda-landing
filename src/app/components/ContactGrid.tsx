@@ -22,7 +22,7 @@ export default function ContactGrid({ onToast }: ContactGridProps) {
       `EMAIL:${CONFIG.EMAIL}`,
       `URL:${CONFIG.WEBSITE}`,
       `ADR;TYPE=WORK:;;1706 Dungan Ln Suite A101;Austin;TX;78754;USA`,
-      'NOTE:Your Art Comes to Life — Bordado\\, DTF\\, Marketing\\, Vehicle Wraps',
+      `NOTE:${t.vcfNote}`,
       'END:VCARD',
     ].join('\n');
 
@@ -39,7 +39,7 @@ export default function ContactGrid({ onToast }: ContactGridProps) {
   const handleShare = useCallback(async () => {
     const shareData = {
       title: 'Rueda La Rola Media',
-      text: 'Your Art Comes to Life — Austin, TX. Bordado, DTF, Vehicle Wraps & más',
+      text: t.shareText,
       url: window.location.href,
     };
     if (navigator.share) {
@@ -52,14 +52,14 @@ export default function ContactGrid({ onToast }: ContactGridProps) {
 
   return (
     <>
-      <div className="contact-grid" role="group" aria-label="Contact options">
+      <div className="contact-grid" role="group" aria-label={t.sectionContact}>
         <a
           id="btn-whatsapp"
-          href={`https://wa.me/${CONFIG.WHATSAPP_PRIMARY}?text=Hola%20Rueda%20La%20Rola%20Media%2C%20me%20interesa%20un%20servicio`}
+          href={`https://wa.me/${CONFIG.WHATSAPP_PRIMARY}?text=${encodeURIComponent(t.whatsappMsgDefault)}`}
           target="_blank"
           rel="noopener noreferrer"
           className="contact-btn cb-whatsapp"
-          aria-label="Contactar por WhatsApp"
+          aria-label={t.ariaContactWhatsApp}
         >
           <span className="cb-icon" aria-hidden="true">💬</span>
           <span>{t.whatsapp}</span>
@@ -69,7 +69,7 @@ export default function ContactGrid({ onToast }: ContactGridProps) {
           id="btn-call-main"
           href={`tel:${CONFIG.PHONE_MAIN}`}
           className="contact-btn cb-call"
-          aria-label="Llamar línea principal"
+          aria-label={t.ariaContactCall}
         >
           <span className="cb-icon" aria-hidden="true">📞</span>
           <span>{t.call}</span>
@@ -79,7 +79,7 @@ export default function ContactGrid({ onToast }: ContactGridProps) {
           id="btn-email"
           href={`mailto:${CONFIG.EMAIL}`}
           className="contact-btn cb-email"
-          aria-label="Enviar correo electrónico"
+          aria-label={t.ariaContactEmail}
         >
           <span className="cb-icon" aria-hidden="true">✉️</span>
           <span>{t.email}</span>
@@ -91,7 +91,7 @@ export default function ContactGrid({ onToast }: ContactGridProps) {
           id="btn-save-vcf"
           className="contact-btn cb-vcf"
           onClick={handleVCF}
-          aria-label="Guardar en agenda"
+          aria-label={t.ariaSaveVcf}
         >
           <span className="cb-icon" aria-hidden="true">👤</span>
           <span>{t.saveContact}</span>
@@ -101,7 +101,7 @@ export default function ContactGrid({ onToast }: ContactGridProps) {
           id="btn-share"
           className="contact-btn cb-share"
           onClick={handleShare}
-          aria-label="Compartir tarjeta"
+          aria-label={t.ariaShare}
         >
           <span className="cb-icon" aria-hidden="true">🔗</span>
           <span>{t.share}</span>

@@ -17,7 +17,7 @@ export default function VehicleWrapsSection() {
   ] as const;
 
   const handleCTA = () => {
-    const msg = encodeURIComponent('Hola Rueda La Rola Media! 🚘 Me interesa un Vehicle Wrap. ¿Me pueden dar una cotización?');
+    const msg = encodeURIComponent(t.wrapMsg);
     window.open(`https://wa.me/${WHATSAPP}?text=${msg}`, '_blank');
   };
 
@@ -43,7 +43,7 @@ export default function VehicleWrapsSection() {
       <div className="wrap-stat-row">
         <div className="wrap-stat">
           <span className="wrap-stat-num">100+</span>
-          <span className="wrap-stat-lbl">{lang === 'en' ? 'Vehicles wrapped' : 'Vehículos wrapeados'}</span>
+          <span className="wrap-stat-lbl">{t.wrapStatVehicles}</span>
         </div>
         <div className="wrap-stat-divider" />
         <div className="wrap-stat">
@@ -53,7 +53,7 @@ export default function VehicleWrapsSection() {
         <div className="wrap-stat-divider" />
         <div className="wrap-stat">
           <span className="wrap-stat-num">48h</span>
-          <span className="wrap-stat-lbl">{lang === 'en' ? 'Avg. turnaround' : 'Tiempo promedio'}</span>
+          <span className="wrap-stat-lbl">{t.wrapStatTurnaround}</span>
         </div>
       </div>
 

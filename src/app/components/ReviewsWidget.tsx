@@ -51,13 +51,13 @@ export default function ReviewsWidget() {
   const { t, lang } = useLang();
 
   return (
-    <div aria-label="Customer reviews">
+    <div aria-label={t.sectionReviews}>
       <div className="reviews-header">
         <div className="reviews-score">
           <span className="score-number">5.0</span>
           <div>
-            <div className="stars" aria-label="5 out of 5 stars">★★★★★</div>
-            <div className="reviews-count">{t.reviewsTotal} · 5 reseñas</div>
+            <div className="stars" aria-label={t.starsLabel}>★★★★★</div>
+            <div className="reviews-count">{t.reviewsTotal} · {t.reviewsCount}</div>
           </div>
         </div>
         <a
@@ -65,7 +65,7 @@ export default function ReviewsWidget() {
           target="_blank"
           rel="noopener noreferrer"
           className="google-badge"
-          aria-label="Ver reseñas en Google Maps"
+          aria-label={t.ariaViewOnGoogle}
           style={{ textDecoration: 'none' }}
         >
           <span aria-hidden="true">🔍</span> Google
@@ -90,7 +90,9 @@ export default function ReviewsWidget() {
                 </div>
                 <div>
                   <div className="reviewer-name">{r.name}</div>
-                  <div className="reviewer-date">{lang === 'en' ? r.date : r.dateEs}</div>
+                  <div className="reviewer-date">
+                    {lang === 'en' ? r.date : `${t.reviewDatePrefix}${r.dateEs.replace('hace ', '')}`}
+                  </div>
                 </div>
               </div>
               <div className="review-stars" aria-label={`${r.rating} stars`}>
@@ -111,9 +113,9 @@ export default function ReviewsWidget() {
         rel="noopener noreferrer"
         className="btn btn-brand w-full mt-md"
         style={{ borderRadius: 'var(--radius-md)', padding: '0.85rem', marginTop: '1rem', display: 'flex', justifyContent: 'center' }}
-        aria-label="Ver todas las reseñas en Google Maps"
+        aria-label={t.reviewsSeeAll}
       >
-        {lang === 'en' ? '⭐ See all reviews on Google' : '⭐ Ver todas en Google Maps'}
+        {t.reviewsSeeAll}
       </a>
     </div>
   );

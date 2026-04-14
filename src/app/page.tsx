@@ -97,49 +97,46 @@ function SocialRow() {
 
 /* ── Business Info ────────────────────────────────── */
 function BusinessInfo() {
-  const { lang } = useLang();
-  const hours = lang === 'en'
-    ? 'Mon – Sat: 8:00 AM – 6:00 PM · Sun: Closed'
-    : 'Lun – Sáb: 8:00 AM – 6:00 PM · Dom: Cerrado';
+  const { t } = useLang();
 
   return (
     <div className="info-grid">
       <a id="info-address" href={CONFIG.MAPS_URL} target="_blank" rel="noopener noreferrer"
-        className="info-row" style={{ textDecoration: 'none' }} aria-label="Open in Google Maps">
+        className="info-row" style={{ textDecoration: 'none' }} aria-label={t.addressLabel}>
         <span className="info-icon">📍</span>
         <div>
-          <div className="info-label">{lang === 'en' ? 'Address' : 'Dirección'}</div>
+          <div className="info-label">{t.addressLabel}</div>
           <div className="info-value">{CONFIG.ADDRESS}</div>
         </div>
       </a>
       <div className="info-row">
         <span className="info-icon">🕐</span>
         <div>
-          <div className="info-label">{lang === 'en' ? 'Hours' : 'Horario'}</div>
-          <div className="info-value">{hours}</div>
+          <div className="info-label">{t.hoursLabel}</div>
+          <div className="info-value">{t.hoursHero}</div>
         </div>
       </div>
       <a id="info-phone-main" href={`tel:${CONFIG.PHONE_MAIN}`}
-        className="info-row" style={{ textDecoration: 'none' }} aria-label="Call main line">
+        className="info-row" style={{ textDecoration: 'none' }} aria-label={t.mainLineLabel}>
         <span className="info-icon">📞</span>
         <div>
-          <div className="info-label">{lang === 'en' ? 'Main · Austin TX' : 'Principal · Austin TX'}</div>
+          <div className="info-label">{t.mainLineLabel}</div>
           <div className="info-value" style={{ color: 'var(--brand-magenta)' }}>{CONFIG.PHONE_MAIN}</div>
         </div>
       </a>
       <a id="info-phone-office" href={`tel:${CONFIG.PHONE_OFFICE}`}
-        className="info-row" style={{ textDecoration: 'none' }} aria-label="Call office">
+        className="info-row" style={{ textDecoration: 'none' }} aria-label={t.officeLineLabel}>
         <span className="info-icon">🏢</span>
         <div>
-          <div className="info-label">{lang === 'en' ? 'Office (LLC)' : 'Oficina (LLC)'}</div>
+          <div className="info-label">{t.officeLineLabel}</div>
           <div className="info-value" style={{ color: 'hsl(247, 70%, 70%)' }}>{CONFIG.PHONE_OFFICE}</div>
         </div>
       </a>
       <a id="info-email" href={`mailto:${CONFIG.EMAIL}`}
-        className="info-row" style={{ textDecoration: 'none' }} aria-label="Send email">
+        className="info-row" style={{ textDecoration: 'none' }} aria-label={t.email}>
         <span className="info-icon">✉️</span>
         <div>
-          <div className="info-label">Email</div>
+          <div className="info-label">{t.email}</div>
           <div className="info-value" style={{ color: 'var(--brand-magenta)' }}>{CONFIG.EMAIL}</div>
         </div>
       </a>
@@ -149,7 +146,7 @@ function BusinessInfo() {
 
 /* ── Landing Inner ────────────────────────────────── */
 function LandingInner() {
-  const { t, lang } = useLang();
+  const { t } = useLang();
   const [toastMsg, setToastMsg] = useState('');
   const [toastVisible, setToastVisible] = useState(false);
 
@@ -178,7 +175,7 @@ function LandingInner() {
           <p className="hero-tagline">{t.tagline}</p>
           <div className="hero-location">
             <span aria-hidden="true">📍</span>
-            <span>Austin, TX · {lang === 'en' ? 'Mon–Sat 8am–6pm' : 'Lun–Sáb 8am–6pm'}</span>
+            <span>{t.location} · {t.hoursHero}</span>
           </div>
           <SocialRow />
         </section>
@@ -238,9 +235,9 @@ function LandingInner() {
         </section>
 
         {/* ── BUSINESS INFO ──────────────────── */}
-        <section aria-label={lang === 'en' ? 'Business Info' : 'Información'} className="animate-fade-in delay-6">
+        <section aria-label={t.sectionInfo} className="animate-fade-in delay-6">
           <SectionCard>
-            <div className="section-tag"><span aria-hidden="true">🏢</span> {lang === 'en' ? 'Business Info' : 'Información'}</div>
+            <div className="section-tag"><span aria-hidden="true">🏢</span> {t.sectionInfo}</div>
             <BusinessInfo />
           </SectionCard>
         </section>
@@ -252,16 +249,6 @@ function LandingInner() {
             <PaymentCenter />
           </SectionCard>
         </section>
-
-        {/* ── ORDER TRACKER (💤 muted — coming soon) ── */}
-        {/* 
-        <section id="tracker" aria-label="Track Order" className="animate-fade-in delay-7">
-          <SectionCard>
-            <div className="section-tag"><span aria-hidden="true">🎯</span> Track Order</div>
-            <OrderTracker />
-          </SectionCard>
-        </section>
-        */}
 
         {/* ── REVIEWS ────────────────────────── */}
         <section aria-label={t.sectionReviews} className="animate-fade-in delay-7">
